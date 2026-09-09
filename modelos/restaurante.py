@@ -5,19 +5,21 @@ class Restaurante:
     def __init__(self, nome, categoria):
         self.nome = nome
         self.categoria = categoria
-        self.status = False
+        self._status = False
         Restaurante.restaurantes.append(self)
 
     def __str__(self):
-        return (
-            f"{self.nome} | {self.categoria} | {'Ativo' if self.status else 'Inativo'}"
-        )
+        return f"{self.nome} | {self.categoria} | {self._status}"
 
     def listar_restaurantes():
         for restaurante in Restaurante.restaurantes:
             print(
                 f"{restaurante.nome.ljust(20)} | {restaurante.categoria.ljust(20)} | {restaurante.status}"
             )
+
+    @property
+    def status(self):
+        return "✔️" if self._status else "❌"
 
 
 restaurante_praca = Restaurante("Praça", "Italiana")
