@@ -3,19 +3,20 @@ class Restaurante:
     restaurantes = []  # noqa: RUF012
 
     def __init__(self, nome, categoria):
-        self.nome = nome
-        self.categoria = categoria
+        self._nome = nome.title()
+        self._categoria = categoria.title()
         self._status = False
         Restaurante.restaurantes.append(self)
 
     def __str__(self):
-        return f"{self.nome} | {self.categoria} | {self._status}"
+        return f"{self._nome} | {self._categoria} | {self._status}"
 
-    def listar_restaurantes():
+    @classmethod
+    def listar_restaurantes(cls):
         print(f"\n{'Restaurante'.ljust(20)} | {'Categoria'.ljust(20)} | Status")
-        for restaurante in Restaurante.restaurantes:
+        for restaurante in cls.restaurantes:
             print(
-                f"{restaurante.nome.ljust(20)} | {restaurante.categoria.ljust(20)} | {restaurante.status}"
+                f"{restaurante._nome.ljust(20)} | {restaurante._categoria.ljust(20)} | {restaurante.status}"
             )
 
     @property
@@ -23,7 +24,7 @@ class Restaurante:
         return "✔️" if self._status else "❌"
 
 
-restaurante_praca = Restaurante("Praça", "Italiana")
-restaurante_pizza = Restaurante("Rhino", "Pizzaria")
+restaurante_praca = Restaurante("praça", "Italiana")
+restaurante_pizza = Restaurante("rhino", "Pizzaria")
 
 Restaurante.listar_restaurantes()
