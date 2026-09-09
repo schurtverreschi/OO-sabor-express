@@ -12,6 +12,7 @@ class Restaurante:
         return f"{self.nome} | {self.categoria} | {self._status}"
 
     def listar_restaurantes():
+        print(f"\n{'Restaurante'.ljust(20)} | {'Categoria'.ljust(20)} | Status")
         for restaurante in Restaurante.restaurantes:
             print(
                 f"{restaurante.nome.ljust(20)} | {restaurante.categoria.ljust(20)} | {restaurante.status}"
