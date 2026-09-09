@@ -19,12 +19,16 @@ class Restaurante:
                 f"{restaurante._nome.ljust(20)} | {restaurante._categoria.ljust(20)} | {restaurante.status}"
             )
 
+    def alternar_status(self):
+        self._status = not self._status
+
     @property
     def status(self):
         return "✔️" if self._status else "❌"
 
 
 restaurante_praca = Restaurante("praça", "Italiana")
+restaurante_praca.alternar_status()
 restaurante_pizza = Restaurante("rhino", "Pizzaria")
 
 Restaurante.listar_restaurantes()
