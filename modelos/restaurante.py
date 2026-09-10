@@ -25,10 +25,3 @@ class Restaurante:
     @property
     def status(self):
         return "✔️" if self._status else "❌"
-
-
-restaurante_praca = Restaurante("praça", "Italiana")
-restaurante_praca.alternar_status()
-restaurante_pizza = Restaurante("rhino", "Pizzaria")
-
-Restaurante.listar_restaurantes()
