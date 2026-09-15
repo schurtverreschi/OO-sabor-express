@@ -1,3 +1,6 @@
+from modelos.avaliacao import Avaliacao
+
+
 class Restaurante:
 
     restaurantes = []  # noqa: RUF012
@@ -6,6 +9,7 @@ class Restaurante:
         self._nome = nome.title()
         self._categoria = categoria.title()
         self._status = False
+        self._avaliacao = []
         Restaurante.restaurantes.append(self)
 
     def __str__(self):
@@ -25,3 +29,7 @@ class Restaurante:
     @property
     def status(self):
         return "✔️" if self._status else "❌"
+
+    def receber_avaliacao(self, cliente, nota):
+        avaliacao = Avaliacao(cliente, nota)
+        self._avaliacao.append(avaliacao)
