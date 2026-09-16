@@ -17,10 +17,12 @@ class Restaurante:
 
     @classmethod
     def listar_restaurantes(cls):
-        print(f"\n{'Restaurante'.ljust(20)} | {'Categoria'.ljust(20)} | Status")
+        print(
+            f"\n{'Restaurante'.ljust(20)} | {'Categoria'.ljust(20)} | {'Avaliação'.ljust(20)} | Status"
+        )
         for restaurante in cls.restaurantes:
             print(
-                f"{restaurante._nome.ljust(20)} | {restaurante._categoria.ljust(20)} | {restaurante.status}"
+                f"{restaurante._nome.ljust(20)} | {restaurante._categoria.ljust(20)} | {str(restaurante.media_avaliacoes).ljust(20)} | {restaurante.status}"
             )
 
     def alternar_status(self):
