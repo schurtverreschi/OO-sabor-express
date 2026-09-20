@@ -1,4 +1,5 @@
 from modelos.avaliacao import Avaliacao
+from modelos.cardápio.item_cardapio import ItemCardapio
 
 
 class Restaurante:
@@ -18,6 +19,7 @@ class Restaurante:
         self._categoria = categoria.title()
         self._status = False
         self._avaliacao = []
+        self._cardapio = []
         Restaurante.restaurantes.append(self)
 
     def __str__(self):
@@ -64,3 +66,8 @@ class Restaurante:
         quantidade_de_notas = len(self._avaliacao)
         media = round(soma_das_notas / quantidade_de_notas, 1)
         return media
+
+    def adicionar_ao_cardapio(self, item):
+        """Valida se o item pertence a classe ItemCardápio e adiciona ao cardápio do restaurante"""
+        if isinstance(item, ItemCardapio):
+            self._cardapio.append(item)
