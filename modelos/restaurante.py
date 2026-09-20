@@ -71,3 +71,14 @@ class Restaurante:
         """Valida se o item pertence a classe ItemCardápio e adiciona ao cardápio do restaurante"""
         if isinstance(item, ItemCardapio):
             self._cardapio.append(item)
+
+    @property
+    def exibir_cardapio(self):
+        print(f"\nCardapio do restaurante {self._nome}\n")
+        for i, item in enumerate(self._cardapio, start=1):
+            if hasattr(item, "_descricao"):
+                mensagem_prato = f"{i}. Nome: {item._nome.ljust(20)} |Preço: R$ {item._preco:.2f} |Descrição: {item._descricao}"
+                print(mensagem_prato)
+            else:
+                mensagem_bebida = f"{i}. Nome: {item._nome.ljust(20)} |Preço: R$ {item._preco:.2f} |Tamanho: {item._tamanho}"
+                print(mensagem_bebida)
